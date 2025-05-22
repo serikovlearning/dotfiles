@@ -25,8 +25,14 @@ function M.config()
     --
     local telescope_themes = require("telescope.themes")
     telescope.setup({
+        defaults = {
+            -- prompt_position = 'top',
+            -- layout_strategy = 'horizontal',
+            sorting_strategy = 'ascending',
+            -- use_less = false
+        },
         pickers = {
-            find_files = { telescope_themes.get_cursor {} }
+            find_files = { hidden = true, telescope_themes.get_cursor {} }
         },
         extensions = {
             ["ui-select"] = {

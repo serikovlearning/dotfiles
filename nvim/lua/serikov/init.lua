@@ -15,6 +15,7 @@ spec("serikov.colorschemes")
 spec("serikov.treesitter")
 spec("serikov.snacks")
 spec("serikov.lualine")
+spec("serikov.neotest")
 -- enable lazy and lazy dependend things
 require("serikov.lazy")
 require("serikov.colors")

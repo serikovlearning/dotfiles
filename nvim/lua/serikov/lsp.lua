@@ -37,7 +37,7 @@ vim.lsp.config("lua-language-server", {
 vim.lsp.enable("lua-language-server")
 vim.lsp.enable("vtsls")
 -- Setup dignostics
-local icons = require("config.icons")
+local icons = require("additional.icons")
 vim.diagnostic.config({
     virtual_text = {
         spacing = 2,
