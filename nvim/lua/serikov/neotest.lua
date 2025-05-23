@@ -11,26 +11,45 @@ local M = {
 }
 
 function M.config()
-    require("neotest").setup({
+    local neotest = require('neotest')
+    neotest.setup({
         adapters = {
-            require('neotest').setup({
-                adapters = {
-                    require('neotest-jest')({
-                        jestCommand = "npm test --",
-                        jestConfigFile = "custom.jest.config.ts",
-                        env = { CI = true },
-                        cwd = function(path)
-                            return vim.fn.getcwd()
-                        end,
-                    }),
-                }
+            require('neotest-jest')({
+                jestCommand = "npm run test --",
+                jestConfigFile = "custom.jest.config.ts",
+                env = { CI = true },
+                cwd = function(path)
+                    return vim.fn.getcwd()
+                end,
             }),
-            require("neotest-vitest")({
-                dap = { justMyCode = false },
-            }),
-
-        },
+        }
     })
+
+
+    local keymap = vim.keymap
+
+    keymap.set(
+        "n",
+        "<leader>nt",
+        function()
+            neotest.run.run()
+        end
+    )
+    keymap.set(
+        "n",
+        "<leader>ns",
+        function()
+            neotest.summary.toggle()
+        end
+    )
+    keymap.set(
+        "n",
+        "<leader>nw",
+        function()
+            -- neotest.watch.toggle(vim.fn.expand("%"))
+            neotest.watch.toggle()
+        end
+    )
 end
 
 return M
