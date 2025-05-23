@@ -1,10 +1,10 @@
 # fonts
-font-family = JetBrainsMono Nerd Font
-font-size = 18
+font-family = AdwaitaMono Nerd Font
+font-size = 16
 adjust-cell-height = 4
 
 # colors
-theme = catppuccin-mocha
+theme = catppuccin-macchiato
 background-opacity = 0.92
 background-blur = true
 maximize = true
@@ -12,5 +12,5 @@ window-padding-x = 8
 window-padding-y = 8
 window-decoration = none
 
-# keys
+# keyss
 keybind = ctrl+enter=unbind
