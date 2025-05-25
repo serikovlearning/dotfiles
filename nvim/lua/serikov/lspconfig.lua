@@ -1,6 +1,5 @@
 local M = { "neovim/nvim-lspconfig" }
 
-
 function M.config()
     vim.lsp.config("*", {
         settings = {}
@@ -20,6 +19,9 @@ function M.config()
 
     -- Setup dignostics
     local icons = require("additional.icons")
+    local util = vim.lsp.util
+
+
     vim.diagnostic.config({
         virtual_text = {
             spacing = 2,
@@ -56,19 +58,50 @@ function M.config()
         callback = function(args)
             -- Get the buffer number
             local bufnr = args.buf
+            local snacks = require("snacks")
+            local stop_insert = require("additional.utils").stop_insert
 
             -- Define a local function to simplify keymapping
-            local opts = { noremap = true, silent = true }
-            local keymap = vim.api.nvim_buf_set_keymap
+            local keymap = vim.keymap.set
+            local opts = { buffer = bufnr, noremap = true, silent = true }
 
-            keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-            keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-            keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover({border=\"rounded\"})<CR>", opts)
-            keymap(bufnr, "n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-            keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-            keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-            keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-            keymap(bufnr, "n", "g.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+            keymap("n", "gD", function()
+                snacks.picker.lsp_declarations({
+                    on_show = stop_insert
+                })
+            end
+            , opts)
+            keymap("n", "gd", function()
+                snacks.picker.lsp_definitions({
+                    on_show = stop_insert
+                })
+            end, opts)
+            keymap("n", "gr", function()
+                snacks.picker.lsp_references({
+                    on_show = stop_insert
+                })
+            end, opts)
+            keymap("n", "gdb", function()
+                snacks.picker.diagnostics_buffer({
+                    on_show = stop_insert
+                })
+            end, opts)
+            -- keymap("n", "gd", function() snacks.picker.lsp_definitions() end, opts)
+            -- keymap("n", "gr", function() snacks.picker.lsp_references() end, opts)
+            keymap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
+            keymap("n", "gR", vim.lsp.buf.rename, opts)
+            keymap("n", "gI", vim.lsp.buf.implementation, opts)
+            keymap("n", "gl", vim.diagnostic.open_float, opts)
+            -- keymap("n", "g.", vim.lsp.buf.code_action, opts)
+            -- keymap("n", "g.", vim.lsp.handlers(), opts)
+            -- keymap("n", "g.", function()
+            --     snacks.picker.qflist({
+            --         on_show = stop_insert,
+            --         filter
+            --     })
+            -- end, opts)
+         keymap("n", "g]", vim.diagnostic.goto_next, opts)
+            keymap("n", "g[", vim.diagnostic.goto_prev, opts)
         end,
     })
 end

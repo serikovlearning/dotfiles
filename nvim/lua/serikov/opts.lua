@@ -27,7 +27,7 @@ opt.showmode = false
 opt.swapfile = false
 opt.undofile = true     -- enable persistent undo
 opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
-
+opt.timeoutlen = 300
 opt.undofile = true
 opt.backup = false
 

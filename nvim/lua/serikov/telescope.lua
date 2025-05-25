@@ -1,14 +1,7 @@
 local M = { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }
 local MB = { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
-local MS = { "nvim-telescope/telescope-ui-select.nvim" }
+-- local MS = { "nvim-telescope/telescope-ui-select.nvim" }
 
-local stop_insert = function()
-    vim.schedule(
-        function()
-            vim.cmd("stopinsert")
-        end
-    )
-end
 local function vsplit_and_callback(fn)
     vim.cmd("only")
     vim.cmd("vsplit")
@@ -32,13 +25,13 @@ function M.config()
             -- use_less = false
         },
         pickers = {
-            find_files = { hidden = true, telescope_themes.get_cursor {} }
+            find_files = { hidden = true }
         },
         extensions = {
-            ["ui-select"] = {
-                telescope_themes.get_cursor {
-                }
-            },
+            -- ["ui-select"] = {
+            --     telescope_themes.get_cursor {
+            --     }
+            -- },
             ["file_browser"] = {
                 grouped = true,
                 respect_gitignore = false,
@@ -69,7 +62,7 @@ function M.config()
             }
         }
     })
-    telescope.load_extension("ui-select")
+    -- telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     keymap.set(
         'n',
@@ -87,28 +80,31 @@ function M.config()
         end,
         { desc = 'Telescope find files' }
     )
-
+    local call_with_normal = require("additional.utils").call_with_normal
     keymap.set(
         "n",
         "<leader>e",
-        function()
-            telescope.extensions.file_browser.file_browser({
-                path = vim.fn.expand("%:p:h"),
-                select_buffer = true
-            })
-            stop_insert()
-        end
+        call_with_normal(
+            function()
+                telescope.extensions.file_browser.file_browser({
+                    path = vim.fn.expand("%:p:h"),
+                    select_buffer = true
+                })
+            end
+        )
     )
 
     keymap.set(
         "n",
         "<leader>gs",
-        function()
-            telescope_builtin.git_status()
-            stop_insert()
-        end
+        call_with_normal(
+            function()
+                telescope_builtin.git_status()
+            end
+        )
     )
 end
 
-return { MS, M, MB }
+-- return { MS, M, MB }
+return {  M, MB }
 -- return vim.tbl_extend("force", M, MB)

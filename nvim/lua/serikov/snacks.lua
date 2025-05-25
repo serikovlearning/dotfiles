@@ -3,13 +3,19 @@ local M = {
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
+    opts = {
+        picker = {
+            enabled = true,
+            ui_select = true,
+        }
+    },
 }
 
 function M.config()
     local snacks = require("snacks")
-    snacks.dim.enable()
+    -- snacks.dim.enable()
     -- snacks.scroll.enable()
-    -- snacks.indent.enable()
+    snacks.indent.enable()
 end
 
 return M
