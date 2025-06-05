@@ -92,10 +92,10 @@ function M.config()
             keymap("n", "gR", vim.lsp.buf.rename, opts)
             keymap("n", "gI", vim.lsp.buf.implementation, opts)
             keymap("n", "gl", vim.diagnostic.open_float, opts)
-            -- keymap("n", "g.", vim.lsp.buf.code_action, opts)
+            keymap("n", "g.", vim.lsp.buf.code_action, opts)
             -- keymap("n", "g.", vim.lsp.handlers(), opts)
             -- keymap("n", "g.", function()
-            --     snacks.picker.qflist({
+            --     snacks.picker.({
             --         on_show = stop_insert,
             --         filter
             --     })
