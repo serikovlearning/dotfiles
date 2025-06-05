@@ -1,16 +1,17 @@
 # fonts
 font-family = AdwaitaMono Nerd Font
-font-size = 16
+font-size = 18
 adjust-cell-height = 4
 
 # colors
 theme = catppuccin-macchiato
-background-opacity = 0.92
-background-blur = true
-maximize = true
-window-padding-x = 8
-window-padding-y = 8
-window-decoration = none
+# background-opacity = 0.92
+# background-blur = true
+# maximize = true
+fullscreen = true
+window-padding-x = 30
+window-padding-y = 40
+# window-decoration = none
 
 # keyss
 keybind = ctrl+enter=unbind
