@@ -14,12 +14,12 @@ opt.fillchars:append({ eob = " " }) -- 'eob' = End Of Buffer
 opt.clipboard = "unnamedplus"
 
 opt.number = true
-opt.signcolumn = "auto"
+opt.signcolumn = "yes"
 opt.cursorline = true
-opt.wrap = true
+opt.wrap = false
 
 -- scrolling
-opt.scrolloff = 8 -- is one of my fav
+opt.scrolloff = 8
 opt.sidescrolloff = 8
 
 -- saves

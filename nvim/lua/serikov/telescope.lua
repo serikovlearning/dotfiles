@@ -1,6 +1,6 @@
 local M = { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } }
 local MB = { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }
--- local MS = { "nvim-telescope/telescope-ui-select.nvim" }
+local MS = { "nvim-telescope/telescope-ui-select.nvim" }
 
 local function vsplit_and_callback(fn)
     vim.cmd("only")
@@ -28,10 +28,10 @@ function M.config()
             find_files = { hidden = true }
         },
         extensions = {
-            -- ["ui-select"] = {
-            --     telescope_themes.get_cursor {
-            --     }
-            -- },
+            ["ui-select"] = {
+                telescope_themes.get_cursor {
+                }
+            },
             ["file_browser"] = {
                 grouped = true,
                 respect_gitignore = false,
@@ -62,7 +62,7 @@ function M.config()
             }
         }
     })
-    -- telescope.load_extension("ui-select")
+    telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     keymap.set(
         'n',
@@ -103,8 +103,17 @@ function M.config()
             end
         )
     )
+       keymap.set(
+        "n",
+        "<leader>b",
+        call_with_normal(
+            function()
+                telescope_builtin.buffers()
+            end
+        )
+    )
 end
 
--- return { MS, M, MB }
-return {  M, MB }
+return { MS, MB, M }
+-- return {  M, MB }
 -- return vim.tbl_extend("force", M, MB)

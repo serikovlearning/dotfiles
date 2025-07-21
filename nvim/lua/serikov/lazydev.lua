@@ -12,6 +12,7 @@ return {
     },
     { -- optional blink completion source for require statements and module annotations
         "saghen/blink.cmp",
+        -- version = "1.*",  -- Automatically uses latest 1.x release with prebuilt binary
         opts = {
             completion = {
                 menu = {

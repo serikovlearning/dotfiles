@@ -12,8 +12,7 @@ local M = {
 }
 
 function M.config()
-    local snacks = require("snacks")
-    -- snacks.dim.enable()
+    -- local snacks = require("snacks")
     -- snacks.scroll.enable()
     -- snacks.indent.enable()
 end

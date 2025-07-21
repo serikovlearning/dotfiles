@@ -25,6 +25,7 @@ function M.config()
     vim.diagnostic.config({
         virtual_text = {
             spacing = 2,
+            current_line = true,
             prefix = function(diagnostic)
                 local severity = vim.diagnostic.severity
                 local icons_map = {
