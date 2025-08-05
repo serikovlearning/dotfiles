@@ -15,7 +15,7 @@ function M.config()
     vim.lsp.enable({
         "lua_ls",
         "vtsls",
-    })
+})
 
     -- Setup dignostics
     local icons = require("additional.icons")
@@ -23,7 +23,7 @@ function M.config()
 
 
     vim.diagnostic.config({
-        virtual_text = {
+        virtual_lines = {
             spacing = 2,
             current_line = true,
             prefix = function(diagnostic)
