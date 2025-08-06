@@ -1,17 +1,22 @@
 # fonts
-font-family = AdwaitaMono Nerd Font
-font-size = 18
+# font-family = AdwaitaMono Nerd Font
+font-family = SpaceMono Nerd Font Mono
+font-feature = -calt, -liga, -dlig
+# font-family = Liga SFMono Nerd Font
+font-size = 14
 adjust-cell-height = 4
 
 # colors
-theme = catppuccin-macchiato
+# theme = catppuccin-macchiato
+theme = gruvbox-material
 # background-opacity = 0.92
 # background-blur = true
 # maximize = true
 fullscreen = true
-window-padding-x = 30
-window-padding-y = 40
-# window-decoration = none
+window-padding-x = 10
+window-padding-y = 30
+window-decoration = none
 
-# keyss
+# keys
 keybind = ctrl+enter=unbind
+# />

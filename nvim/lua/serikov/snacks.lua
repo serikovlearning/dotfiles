@@ -14,6 +14,7 @@ local M = {
 function M.config()
     local keymap = vim.keymap
     local snacks = require("snacks")
+
     snacks.setup({
         picker = {
             enabled = true,
@@ -21,8 +22,8 @@ function M.config()
         },
         image = { enabled = true },
         input = { enabled = true },
+        indent = { enabled = true }
     })
-
 
     local picker_opts = {
         layout = { preset = "default", preview = true },
@@ -69,9 +70,30 @@ function M.config()
             snacks.picker.buffers({ on_show = stop_insert })
         end
     )
+    keymap.set(
+        "n",
+        "<leader>p",
+        function()
+            snacks.picker.projects({ on_show = stop_insert })
+        end
+    )
 
-    -- snacks.scroll.enable()
-    -- snacks.indent.enable()
+    keymap.set(
+        "n",
+        "<leader>s",
+        function()
+            snacks.scratch({ ft = "txt" })
+        end
+    )
+
+
+    keymap.set(
+        "n",
+        "<leader>so",
+        function()
+            snacks.scratch.select()
+        end
+    )
 end
 
 return M
