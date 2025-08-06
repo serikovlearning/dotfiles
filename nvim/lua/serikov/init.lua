@@ -5,7 +5,7 @@ require("serikov.keymap")
 
 -- spec lazy plugins and some like this
 spec("serikov.lazydev")
-spec("serikov.telescope")
+-- spec("serikov.telescope")
 spec("serikov.mini")
 spec("serikov.mason")
 spec("serikov.conform")
@@ -19,6 +19,7 @@ spec("serikov.neotest")
 spec("serikov.gitsigns")
 spec("serikov.toggleterm")
 spec("serikov.smear-cursor")
+spec("serikov.flash")
 -- enable lazy and lazy dependend things
 require("serikov.lazy")
 require("serikov.colors")

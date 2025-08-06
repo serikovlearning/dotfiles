@@ -16,7 +16,7 @@ opt.clipboard = "unnamedplus"
 opt.number = true
 opt.signcolumn = "yes"
 opt.cursorline = true
-opt.wrap = false
+opt.wrap = true
 
 -- scrolling
 opt.scrolloff = 8

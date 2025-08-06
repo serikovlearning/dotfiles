@@ -1,1 +1,1 @@
--- vim.cmd.colorscheme "catppuccin"
+-- vi.cmd.colorscheme "catppuccin"

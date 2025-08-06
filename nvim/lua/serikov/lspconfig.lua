@@ -15,13 +15,10 @@ function M.config()
     vim.lsp.enable({
         "lua_ls",
         "vtsls",
-})
+    })
 
     -- Setup dignostics
     local icons = require("additional.icons")
-    local util = vim.lsp.util
-
-
     vim.diagnostic.config({
         virtual_lines = {
             spacing = 2,
@@ -101,7 +98,7 @@ function M.config()
             --         filter
             --     })
             -- end, opts)
-         keymap("n", "g]", vim.diagnostic.goto_next, opts)
+            keymap("n", "g]", vim.diagnostic.goto_next, opts)
             keymap("n", "g[", vim.diagnostic.goto_prev, opts)
         end,
     })
