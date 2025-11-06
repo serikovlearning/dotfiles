@@ -82,6 +82,17 @@ function M.config()
         "n",
         "<leader>s",
         function()
+            snacks.picker.lsp_symbols({ filter = { default = true }, on_show = stop_insert })
+        end
+    )
+
+
+
+
+    keymap.set(
+        "n",
+        "<leader>S",
+        function()
             snacks.scratch({ ft = "txt" })
         end
     )

@@ -1,6 +1,15 @@
 local M = {
     "catppuccin/nvim", name = "catppuccin", priority = 1000
 }
+local C = {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.cmd.colorscheme("oldworld")
+    end,
+}
+
 local B = {
     "sainnhe/gruvbox-material",
     priority = 1000,
@@ -10,7 +19,7 @@ local B = {
         vim.g.gruvbox_material_enable_bold = 1
         vim.g.gruvbox_material_enable_italic = 1
         vim.g.gruvbox_material_ui_contrast = "high"
-        vim.cmd.colorscheme("gruvbox-material")
+        -- vim.cmd.colorscheme("gruvbox-material")
     end,
 }
 
@@ -65,4 +74,4 @@ function M.config()
     })
 end
 
-return { M, B }
+return { C, M, B }

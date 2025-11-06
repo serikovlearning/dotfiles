@@ -20,6 +20,7 @@ spec("serikov.gitsigns")
 spec("serikov.toggleterm")
 spec("serikov.smear-cursor")
 spec("serikov.flash")
+spec("serikov.dap")
 -- enable lazy and lazy dependend things
 require("serikov.lazy")
 require("serikov.colors")

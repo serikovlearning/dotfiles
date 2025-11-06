@@ -1,1 +1,1 @@
--- vi.cmd.colorscheme "catppuccin"
+-- vi.cmd.colorscheme "oldworld"

@@ -1,14 +1,24 @@
 # fonts
 # font-family = AdwaitaMono Nerd Font
-font-family = SpaceMono Nerd Font Mono
+# font-family = SpaceMono Nerd Font Mono
+# font-family = Maple Mono
+# font-family = Liga SFMono Nerd Font
+font-family = Lilex Nerd Font
+# font-family = Iosevka Nerd Font
+# font-family = 0xProto Nerd Font
+# font-family = Departure Nerd Font
+# font-family = Agave Nerd Font
+
+
 font-feature = -calt, -liga, -dlig
 # font-family = Liga SFMono Nerd Font
 font-size = 14
-adjust-cell-height = 4
+adjust-cell-height = 6
 
 # colors
 # theme = catppuccin-macchiato
-theme = gruvbox-material
+# theme = gruvbox-material
+theme = Gruvbox Material
 # background-opacity = 0.92
 # background-blur = true
 # maximize = true

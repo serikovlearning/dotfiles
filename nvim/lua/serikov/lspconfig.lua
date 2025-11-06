@@ -20,9 +20,9 @@ function M.config()
     -- Setup dignostics
     local icons = require("additional.icons")
     vim.diagnostic.config({
-        virtual_lines = {
+        virtual_text = {
             spacing = 2,
-            current_line = true,
+            -- current_line = true,
             prefix = function(diagnostic)
                 local severity = vim.diagnostic.severity
                 local icons_map = {
