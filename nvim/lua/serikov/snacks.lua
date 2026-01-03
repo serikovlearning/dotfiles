@@ -51,6 +51,7 @@ function M.config()
         ---@class snacks.picker.explorer.Config: snacks.picker.files.Config|{}
         snacks.picker.explorer({
             layout = { preset = "default", preview = true },
+            hidden = true,
             on_show = stop_insert,
             auto_close = true,
         })

@@ -13,6 +13,7 @@ function M.config()
         -- },
     })
     vim.lsp.enable({
+        codelens = true,
         "lua_ls",
         "vtsls",
     })
@@ -20,7 +21,7 @@ function M.config()
     -- Setup dignostics
     local icons = require("additional.icons")
     vim.diagnostic.config({
-        virtual_text = {
+        virtual_line = {
             spacing = 2,
             -- current_line = true,
             prefix = function(diagnostic)
@@ -47,7 +48,11 @@ function M.config()
         'n',
         'gf',
         function()
-            vim.lsp.buf.format({ async = true })
+            require("conform").format({
+                async = true,
+                lsp_fallback = true,
+            })
+            -- vim.lsp.buf.format({ async = true })
         end
     )
 

@@ -1,0 +1,107 @@
+
+##### BASIC #####
+
+# Use true color
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*:Tc"
+
+# Faster escape
+set -sg escape-time 0
+
+# Mouse support
+set -g mouse on
+
+# Start window & pane index at 1
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+# Reload config
+bind r source-file ~/.tmux.conf \; display "tmux reloaded"
+
+
+##### STATUS BAR (BOTTOM, CENTERED, SMALL) #####
+
+set -g status on
+set -g status-position bottom
+set -g status-justify centre
+set -g status-interval 1
+
+# Remove left/right junk
+set -g status-left ""
+set -g status-right ""
+set -g status-left-length 0
+set -g status-right-length 0
+
+
+##### WINDOW NAMES (AUTO) #####
+
+# Rename tabs based on running command
+set -g automatic-rename on
+set -g automatic-rename-format "#{pane_current_command}"
+
+# Manual rename still works:
+# tmux rename-window name
+
+
+##### MELLOW COLORS #####
+
+# Status bar background (almost invisible)
+set -g status-style bg=default,fg=colour245
+
+# Inactive tabs
+set -g window-status-style fg=colour244,bg=default
+
+# Active tab
+set -g window-status-current-style fg=colour252,bg=default,bold
+
+
+##### TAB FORMAT #####
+
+# Small padding
+set -g window-status-format " #{window_name} "
+set -g window-status-current-format " #{window_name} "
+
+# Uncomment for ultra-minimal (no padding)
+# set -g window-status-format "#{window_name}"
+# set -g window-status-current-format "#{window_name}"
+
+
+##### PANES #####
+
+# Mellow pane borders
+set -g pane-border-style fg=colour238
+set -g pane-active-border-style fg=colour245
+
+# Split shortcuts
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+
+##### COPY MODE (VI) #####
+
+setw -g mode-keys vi
+
+# Better copy-paste
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi y send -X copy-selection-and-cancel
+
+
+##### QUALITY OF LIFE #####
+
+# Keep path when splitting
+bind c new-window -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+# Focus events (needed for Neovim)
+set -g focus-events on
+
+
+##### OPTIONAL: NVIM ICON (NERD FONT) #####
+# Uncomment if you want a tiny icon for nvim tabs
+
+# set -g automatic-rename-format "#{?#{==:#{pane_current_command},nvim}, nvim,#{pane_current_command}}"
+

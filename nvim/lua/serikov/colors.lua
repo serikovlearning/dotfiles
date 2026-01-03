@@ -1,1 +1,1 @@
--- vi.cmd.colorscheme "oldworld"
+vim.cmd.colorscheme "mellow"
