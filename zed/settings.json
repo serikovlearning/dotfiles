@@ -1,0 +1,147 @@
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the open default settings command
+// from the command palette or from Zed application menu.
+{
+    // Basic
+    "status_bar": {
+        "cursor_position_button": true,
+        "active_language_button": true
+    },
+    "text_rendering_mode": "platform_default",
+    "zoomed_padding": true,
+    "show_completions_on_input": false,
+    "window_decorations": "client",
+    "use_system_window_tabs": false,
+    "tab_bar": {
+        "show": true,
+    },
+    "title_bar": {
+        "show_user_menu": true,
+        "show_menus": false,
+        "show_sign_in": true,
+        "show_user_picture": true,
+        "show_onboarding_banner": true,
+        "show_project_items": true,
+        "show_branch_icon": true,
+        "show_branch_name": true,
+    },
+    "search": {
+        "regex": false,
+    },
+    "use_smartcase_search": false,
+    "prettier": {
+        "allowed": false,
+    },
+    "completions": {
+        "lsp": true,
+    },
+    "show_edit_predictions": true,
+    "inlay_hints": {
+        "enabled": false,
+        "scroll_debounce_ms": 300,
+        "show_type_hints": true,
+    },
+    "tabs": {
+        "git_status": true,
+    },
+    "debugger": {
+        "save_breakpoints": true,
+    },
+    "show_whitespaces": "none",
+    "autosave": "on_focus_change",
+    "base_keymap": "JetBrains",
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false,
+    },
+    "toolbar": {
+        "breadcrumbs": false,
+        "quick_actions": false,
+    },
+    "vim_mode": true,
+    // Layout and themes
+    "theme": "Mellow",
+    "current_line_highlight": "line",
+    "centered_layout": {
+        "left_padding": 0.1,
+        "right_padding": 0.1,
+    },
+    "project_panel": {
+        "button": true,
+        "sort_mode": "directories_first",
+        "hide_hidden": false,
+        "hide_root": false,
+        "indent_guides": {
+            "show": "never",
+        },
+        "auto_fold_dirs": true,
+        "folder_icons": true,
+        "git_status": true,
+        "entry_spacing": "standard",
+        "hide_gitignore": false,
+        "indent_size": 12,
+        "auto_reveal_entries": false,
+        "default_width": 300.0,
+        "dock": "left",
+    },
+    "indent_guides": {
+        "enabled": true,
+    },
+    "active_pane_modifiers": {
+        "inactive_opacity": 0.9
+    },
+    "remove_trailing_whitespace_on_save": true,
+    // Fonts
+    //
+    "show_wrap_guides": false,
+    "ui_font_size": 13,
+    "buffer_font_family": "Liga SFMono Nerd Font",
+    "ui_font_family": "Liga SFMono Nerd Font",
+    // "ui_font_family": "JetBrainsMono Nerd Font Mono",
+    "buffer_font_size": 14,
+    "buffer_line_height": {
+        "custom": 1.66,
+    },
+    "tab_size": 4,
+    // Fromattings
+    //
+    "format_on_save": "off",
+    // Git
+    "git": {
+        "git_gutter": "tracked_files",
+        "inline_blame": {
+            "enabled": false,
+            "delay_ms": 3000,
+        },
+    },
+    // LSP
+    "languages": {
+        "JavaScript": {
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true,
+            },
+            // "formatter": {
+            // "code_actions": {
+            // "source.fixAll.eslint": true,
+            // "source.fix.prettier": true
+            // },
+            // }
+        },
+        "TypeScript": {
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true,
+            },
+            "formatter": [],
+        },
+        "TSX": {
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true,
+            },
+            "formatter": [],
+        },
+    },
+}

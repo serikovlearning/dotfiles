@@ -8,11 +8,16 @@ local C = {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		-- vim.cmd.colorscheme("oldworld")
+        vim.g.mellow_transparent = true
+	-- vim.cmd.colorscheme("oldworld")
 	end,
 }
 local X = { "projekt0n/github-nvim-theme", name = "github-theme" }
-local Z = { "mellow-theme/mellow.nvim", lazy = false, priority = 1000 }
+local Z = {
+	"mellow-theme/mellow.nvim",
+	lazy = false,
+	priority = 1000,
+}
 local B = {
 	"sainnhe/gruvbox-material",
 	priority = 1000,
@@ -25,7 +30,13 @@ local B = {
 		-- vim.cmd.colorscheme("gruvbox-material")
 	end,
 }
-
+--
+-- function Z.config()
+-- 	require("mellow").setup({
+-- 		transparent_background = true, -- disables setting the background color.
+-- 	})
+-- end
+--
 function M.config()
 	require("catppuccin").setup({
 		flavour = "macchiato", -- latte, frappe, macchiato, mocha
@@ -77,4 +88,4 @@ function M.config()
 	})
 end
 
-return { C, M, B, X, Z}
+return { C, M, B, X, Z }
